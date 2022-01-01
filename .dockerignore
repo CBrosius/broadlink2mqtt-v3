@@ -1,0 +1,14 @@
+.vscode
+commands
+config/local.json
+node_modules
+*.log
+tmp-*
+github
+installers
+test
+*.md
+.Dockerfile
+.git
+.gitignore
+docker-compose.yml
