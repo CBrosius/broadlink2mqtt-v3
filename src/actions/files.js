@@ -154,19 +154,16 @@ const checkCommandFilesFlatten = (arr, obj) => {
 
 const checkCommandFiles = (folderPath) => {
   logger.debug(`Check command files ${folderPath}`);
-  /*
-  fs.stat(folderPath, (err) => {
-    if (err) {
-      logger.error(`Missing folder for command files at ${folderPath}`);
-      throw new Error('Force shutdown, missing commands folder');
-    }
-  });
-  */
+    
   fileListStructure(folderPath).then((result) => {
-    if (!result.children) {
-      logger.error('Missing commands folder. Please create a folder called "commands" and restart service.');
-      return;
-    }
+      // create command-folder if not exist
+      if (!fs.existsSync(folderPath)){
+        logger.info(`Missing folder for command files at ${folderPath}`);
+        logger.warn(`trying to create ${folderPath}, please restart service...`);
+        fs.mkdirSync(folderPath, { recursive: true });
+        fileListStructure(folderPath).then((result))
+      }
+
     if (result.children.length === 0) {
       logger.error('Missing commands', result);
       return;

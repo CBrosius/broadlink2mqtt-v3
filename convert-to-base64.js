@@ -9,6 +9,10 @@ console.log('Will create base64 files of all existing commands.');
 
 const loadfiles = (folderPath) => new Promise((resolve) => {
   console.log('');
+  // create command-folder if not exist
+  if (!fs.existsSync(folderPath)){
+    fs.mkdirSync(folderPath, { recursive: true });
+  }
   fileListStructure(folderPath).then((result) => {
     if (!result.children) {
       console.error('Missing commands folder. Please create a folder called "commands" and restart service.');

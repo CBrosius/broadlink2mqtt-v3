@@ -3,7 +3,7 @@
     "level": "info"
   },
   "mqtt": {
-    "host": "127.0.0.1",
+    "host": "192.168.60.240",
     "port": 1883,
     "protocol": "mqtt",
     "subscribeBasePath": "broadlink/"
@@ -19,7 +19,7 @@
       "ir": 15,
       "rf": 15
     },
-    "path": null
+    "path": "/app/commands"
   },
   "gui": {
     "port": 3000,
