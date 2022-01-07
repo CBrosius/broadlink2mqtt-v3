@@ -17,8 +17,8 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag broadlink2mqtt-v3:$(date +%s)
     - name: Push the tagged Docker image
-      run: docker push CBrosius/broadlink2mqtt-v3:${{steps.vars.outputs.tag}}
+      run: docker push cbrosius/broadlink2mqtt-v3:${{steps.vars.outputs.tag}}
     - name: Build the latest Docker image
-      run: docker build . --file Dockerfile --tag CBrosius/broadlink2mqtt-v3:latest
+      run: docker build . --file Dockerfile --tag cbrosius/broadlink2mqtt-v3:latest
     - name: Push the latest Docker image
-      run: docker push CBrosius/broadlink2mqtt-v3:latest
+      run: docker push cbrosius/broadlink2mqtt-v3:latest
